@@ -1,0 +1,10 @@
+.section {
+  position: relative;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  place-items: center;
+  background-color: var( --color-primary);
+}

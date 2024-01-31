@@ -1,0 +1,14 @@
+{
+    "name": "ateny/api",
+    "autoload": {
+        "psr-4": {
+            "Ateny\\Api\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Amir Rahimi"
+        }
+    ],
+    "require": {}
+}

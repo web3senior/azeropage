@@ -1,0 +1,11 @@
+.container {
+  overflow-y: scroll;
+  background-color: #eeeeee;
+  height: inherit;
+  height: 100dvh;
+  padding: 1rem 0;
+
+  span {
+    word-wrap: break-word;
+  }
+}
