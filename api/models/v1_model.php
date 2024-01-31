@@ -46,10 +46,14 @@ class V1_Model extends Model
 
     function page($addr)
     {
-        return $this->db->select("
-             select * from page where `wallet_addr`=:wallet_addr order by `id` desc
-              ",[":wallet_addr" => $addr]);
+        $result = $this->db->select("select * from page where `wallet_addr`=:wallet_addr order by `id` desc", [":wallet_addr" => $addr]);
+        if (is_array($result) && count($result) < 1) {
+            return $this->db->insert("page", [
+                "wallet_addr" => $addr
+            ]);
+        } else return $result;
     }
+
     function merchant($addr)
     {
         return $this->db->select("

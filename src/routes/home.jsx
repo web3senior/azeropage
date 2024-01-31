@@ -21,10 +21,6 @@ function Home({ title }) {
 
       <section className={styles.section}>
         <div className={`__container text-center d-flex flex-column align-items-center justify-content-center`} data-width="medium">
-          <figure>
-            <img src={Logo} />
-          </figure>
-
           <ul className='d-flex flex-column align-items-start justify-content-center'>
             <li>
               <h6>Stay</h6>

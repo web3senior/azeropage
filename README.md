@@ -8,3 +8,6 @@ cd azeropage
 npm i
 npm run dev
 ```
+
+# ToDo
+- Use Aleph DB to store data

@@ -29,6 +29,7 @@ export const isWalletConnected = async () => {
 export function AuthProvider({ children }) {
   const [extensions, setExtensions] = useState()
   const [accounts, setAccounts] = useState()
+  const [wallet, setWallet] = useState()
 
   const logout = () => {
     localStorage.removeItem('accessToken')
@@ -46,6 +47,7 @@ export function AuthProvider({ children }) {
     const accounts = await web3Accounts({ extensions: ['aleph-zero-signer'] })
     console.log(accounts)
     setAccounts(accounts)
+    setWallet(accounts[0].address)
   }
 
   useEffect(() => {
@@ -68,10 +70,11 @@ export function AuthProvider({ children }) {
   const value = {
     extensions,
     accounts,
+    wallet,
     connect,
   }
 
-  if (!extensions && location.pathname !== '/home') return <>Loading... !user</> //&& location.pathname !== '/home'
+  if (!wallet && location.pathname !== '/home') return <>Loading... !user</> //&& location.pathname !== '/home'
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }

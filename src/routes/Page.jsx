@@ -43,13 +43,13 @@ function App() {
         </svg>
 
         <div>
-          <strong>{page && page.length > 0 && `${page[0].username}`}</strong>
+          <strong>@{page && page.length > 0 && `${page[0].username}`}</strong>
           <h6>{page && page.length > 0 && page[0].name}</h6>
-          <input type="text" name="bio" defaultValue={page && page.length > 0 && page[0].bio} />
+          <p>{page && page.length > 0 && page[0].bio}</p>
         </div>
 
         <div className="mt-20">
-          <ul>
+          <ul className='d-flex flex-column' style={{rowGap: '.5rem'}}>
             {page &&
               page.length > 0 &&
               JSON.parse(page[0].links) !== null &&

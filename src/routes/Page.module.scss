@@ -8,4 +8,11 @@
   span {
     word-wrap: break-word;
   }
+
+  ul {
+    width: 100%;
+    li {
+      min-width: 300px;;
+    }
+  }
 }

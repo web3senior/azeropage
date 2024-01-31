@@ -66,18 +66,20 @@ export default function Root() {
       <Toaster />
 
       <div className={styles.rootLayout}>
-        { (
+        {
           <header className={`${styles.header} d-flex align-items-center justify-content-between`}>
-            <div className={`${styles.header__logo} d-flex align-items-center`}>
-              <figure>
-                <img src={Logo} alt={`logo`} />
-              </figure>
-              Azeropage
-            </div>
+            <Link to={'/'}>
+              <div className={`${styles.header__logo} d-flex align-items-center`}>
+                <figure>
+                  <img src={Logo} alt={`logo`} />
+                </figure>
+                Azeropage
+              </div>
+            </Link>
 
             <div className={`d-flex align-items-center`} style={{ columnGap: '1rem' }}>
               <ul className={`d-flex flex-column align-items-center`}>
-                <li>{auth.wallet && `${auth.wallet.slice(0, 4)}...${auth.wallet.slice(38)}`}</li>
+                <li>{auth.wallet && `${auth.wallet.slice(0, 4)}...${auth.wallet.slice(44)}`}</li>
               </ul>
 
               <button className={styles.navButton} onClick={() => handleNavLink()}>
@@ -85,22 +87,29 @@ export default function Root() {
               </button>
             </div>
           </header>
-        )}
+        }
 
         <main>
           <Outlet />
         </main>
       </div>
-      {/* <div className="cover" onClick={() => handleOpenNav()} />
+
+      <div className="cover" onClick={() => handleOpenNav()} />
       <nav className={`${styles.nav} animate`} id="modal">
         <figure>
           <img src={Logo} alt={`logo`} />
         </figure>
         <ul>
-          <li className="">
+        <li className="">
             <button onClick={() => handleNavLink(`/`)}>
               <MaterialIcon name="home" />
               <span>Home</span>
+            </button>
+          </li>
+          <li className="">
+            <button onClick={() => handleNavLink(`/usr/dashboard`)}>
+              <MaterialIcon name="dashboard" />
+              <span>Dashboard</span>
             </button>
           </li>
           <li className="">
@@ -115,16 +124,10 @@ export default function Root() {
               <span>Feedback</span>
             </button>
           </li>
-          <li>
-            X:{' '}
-            <a href="https://twitter.com/" style={{ color: 'var(--area1)' }}>
-              @upcardlink
-            </a>
-          </li>
         </ul>
 
         <small>{`Version ${import.meta.env.VITE_VERSION}`}</small>
-      </nav> */}
+      </nav>
     </>
   )
 }
